@@ -708,6 +708,60 @@
             ]
           }
         ]
+      },
+      {
+        id: 'course-golfzon-jincheon',
+        name: '골프존카운티 진천',
+        location: '충청북도 진천군',
+        type: '27홀 대중제',
+        holesCount: 27,
+        subCourses: [
+          {
+            id: 'sub-jincheon-lake',
+            name: '레이크 코스 (Lake)',
+            holes: [
+              { holeNumber: 1, par: 4, handicap: 3, distance: 350 },
+              { holeNumber: 2, par: 3, handicap: 7, distance: 150 },
+              { holeNumber: 3, par: 5, handicap: 1, distance: 510 },
+              { holeNumber: 4, par: 4, handicap: 8, distance: 345 },
+              { holeNumber: 5, par: 4, handicap: 2, distance: 360 },
+              { holeNumber: 6, par: 3, handicap: 4, distance: 165 },
+              { holeNumber: 7, par: 5, handicap: 5, distance: 495 },
+              { holeNumber: 8, par: 4, handicap: 9, distance: 340 },
+              { holeNumber: 9, par: 4, handicap: 6, distance: 370 }
+            ]
+          },
+          {
+            id: 'sub-jincheon-mountain',
+            name: '마운틴 코스 (Mountain)',
+            holes: [
+              { holeNumber: 1, par: 4, handicap: 4, distance: 360 },
+              { holeNumber: 2, par: 4, handicap: 6, distance: 350 },
+              { holeNumber: 3, par: 3, handicap: 8, distance: 160 },
+              { holeNumber: 4, par: 4, handicap: 2, distance: 375 },
+              { holeNumber: 5, par: 5, handicap: 1, distance: 520 },
+              { holeNumber: 6, par: 4, handicap: 5, distance: 345 },
+              { holeNumber: 7, par: 3, handicap: 9, distance: 145 },
+              { holeNumber: 8, par: 4, handicap: 3, distance: 365 },
+              { holeNumber: 9, par: 5, handicap: 7, distance: 505 }
+            ]
+          },
+          {
+            id: 'sub-jincheon-valley',
+            name: '밸리 코스 (Valley)',
+            holes: [
+              { holeNumber: 1, par: 4, handicap: 1, distance: 365 },
+              { holeNumber: 2, par: 5, handicap: 3, distance: 495 },
+              { holeNumber: 3, par: 3, handicap: 9, distance: 140 },
+              { holeNumber: 4, par: 4, handicap: 5, distance: 350 },
+              { holeNumber: 5, par: 4, handicap: 7, distance: 340 },
+              { holeNumber: 6, par: 4, handicap: 4, distance: 360 },
+              { holeNumber: 7, par: 3, handicap: 8, distance: 155 },
+              { holeNumber: 8, par: 5, handicap: 2, distance: 510 },
+              { holeNumber: 9, par: 4, handicap: 6, distance: 345 }
+            ]
+          }
+        ]
       }
     ];
 
@@ -885,7 +939,8 @@
               'course-club72-lake', 
               'course-hansung', 
               'course-taekwang', 
-              'course-lakeside'
+              'course-lakeside',
+              'course-golfzon-jincheon'
             ];
             DEFAULT_COURSES.forEach(defCourse => {
               const idx = parsed.findIndex(c => c.id === defCourse.id);
