@@ -762,6 +762,45 @@
             ]
           }
         ]
+      },
+      {
+        id: 'course-seosansoo',
+        name: '서산수 골프앤리조트',
+        location: '충청남도 서산시',
+        type: '18홀 대중제',
+        holesCount: 18,
+        subCourses: [
+          {
+            id: 'sub-seosansoo-seosan',
+            name: '서산 코스 (Seosan)',
+            holes: [
+              { holeNumber: 1, par: 4, handicap: 4, distance: 330 },
+              { holeNumber: 2, par: 4, handicap: 6, distance: 340 },
+              { holeNumber: 3, par: 3, handicap: 8, distance: 135 },
+              { holeNumber: 4, par: 5, handicap: 3, distance: 480 },
+              { holeNumber: 5, par: 4, handicap: 5, distance: 350 },
+              { holeNumber: 6, par: 4, handicap: 2, distance: 360 },
+              { holeNumber: 7, par: 3, handicap: 9, distance: 150 },
+              { holeNumber: 8, par: 5, handicap: 7, distance: 500 },
+              { holeNumber: 9, par: 4, handicap: 1, distance: 370 }
+            ]
+          },
+          {
+            id: 'sub-seosansoo-sansoo',
+            name: '산수 코스 (Sansoo)',
+            holes: [
+              { holeNumber: 1, par: 5, handicap: 3, distance: 490 },
+              { holeNumber: 2, par: 4, handicap: 5, distance: 340 },
+              { holeNumber: 3, par: 4, handicap: 4, distance: 350 },
+              { holeNumber: 4, par: 3, handicap: 8, distance: 145 },
+              { holeNumber: 5, par: 4, handicap: 2, distance: 360 },
+              { holeNumber: 6, par: 5, handicap: 6, distance: 485 },
+              { holeNumber: 7, par: 4, handicap: 7, distance: 335 },
+              { holeNumber: 8, par: 3, handicap: 9, distance: 160 },
+              { holeNumber: 9, par: 4, handicap: 1, distance: 375 }
+            ]
+          }
+        ]
       }
     ];
 
@@ -940,7 +979,8 @@
               'course-hansung', 
               'course-taekwang', 
               'course-lakeside',
-              'course-golfzon-jincheon'
+              'course-golfzon-jincheon',
+              'course-seosansoo'
             ];
             DEFAULT_COURSES.forEach(defCourse => {
               const idx = parsed.findIndex(c => c.id === defCourse.id);
