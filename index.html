@@ -1390,6 +1390,10 @@
         const front9Par = front9Holes.reduce((sum, h) => sum + (h.par || 0), 0);
         const back9Score = back9Holes.reduce((sum, h) => sum + (h.score || 0), 0);
         const back9Par = back9Holes.reduce((sum, h) => sum + (h.par || 0), 0);
+        const front9Bunkers = front9Holes.reduce((sum, h) => sum + (h.bunkerCount || 0), 0);
+        const back9Bunkers = back9Holes.reduce((sum, h) => sum + (h.bunkerCount || 0), 0);
+        const front9Penalties = front9Holes.reduce((sum, h) => sum + (h.penaltyCount || 0), 0);
+        const back9Penalties = back9Holes.reduce((sum, h) => sum + (h.penaltyCount || 0), 0);
 
         return {
           totalScore, totalPar, overPar: totalScore - totalPar, totalHolesCount,
@@ -1399,7 +1403,8 @@
           girPct, girCount,
           totalPutts, avgPutts, onePuttCount, twoPuttCount, threePlusPuttCount, noThreePuttPct,
           scramblingPct, scramblingSuccessCount, scramblingEligibleCount,
-          totalBunkers, totalPenalties, scoreDistribution
+          totalBunkers, totalPenalties, front9Bunkers, back9Bunkers, front9Penalties, back9Penalties,
+          scoreDistribution
         };
       },
 
@@ -2960,11 +2965,17 @@
                   <span>⚠️ 트러블 지표</span>
                   <span class="text-[10px] text-slate-400 font-bold">벌타 / 벙커</span>
                 </div>
-                <div class="text-2xl font-black text-rose-400">
-                  ${stats.totalPenalties}<span class="text-xs font-normal text-slate-400 ml-1">벌타</span>
+                <div class="flex items-baseline justify-between">
+                  <div class="text-2xl font-black text-rose-400">
+                    ${stats.totalPenalties}<span class="text-xs font-normal text-slate-400 ml-1">벌타</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 font-medium">
+                    전반 ${stats.front9Penalties} • 후반 ${stats.back9Penalties}
+                  </div>
                 </div>
-                <div class="text-[10px] text-slate-400 mt-1">
-                  벙커 탈출: ${stats.totalBunkers}회
+                <div class="flex items-center justify-between text-[10px] text-slate-300 mt-1 pt-1 border-t border-slate-800/80">
+                  <span>벙커 탈출: <strong class="text-amber-400">${stats.totalBunkers}회</strong></span>
+                  <span class="text-slate-400 font-medium">전반 ${stats.front9Bunkers} • 후반 ${stats.back9Bunkers}</span>
                 </div>
               </div>
             </div>
