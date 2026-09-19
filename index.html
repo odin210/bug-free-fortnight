@@ -836,7 +836,7 @@
               { holeNumber: 6, par: 4, handicap: 6, distance: 380 },
               { holeNumber: 7, par: 5, handicap: 7, distance: 515 },
               { holeNumber: 8, par: 3, handicap: 8, distance: 165 },
-              { holeNumber: 9, par: 5, handicap: 9, distance: 510 }
+              { holeNumber: 9, par: 4, handicap: 9, distance: 360 }
             ]
           },
           {
@@ -1131,9 +1131,20 @@
           if (data) {
             const parsed = JSON.parse(data);
             if (Array.isArray(parsed)) {
+              let needSave = false;
               // 각 라운드의 18홀 실제 점수 합계로만 정밀 검증 및 무결성 보정
-              return parsed.map(round => {
+              const result = parsed.map(round => {
                 if (round.holes && Array.isArray(round.holes) && round.holes.length > 0) {
+                  // 골든베이 오션코스 9번홀 기존 기록의 par 5 -> par 4 스마트 자동 보정
+                  round.holes.forEach(h => {
+                    const isGbOcean = (round.courseId === 'course-goldenbay' || (round.courseName && round.courseName.includes('골든베이'))) &&
+                                      (h.subCourseId === 'sub-goldenbay-ocean' || (h.subCourseName && h.subCourseName.includes('오션')));
+                    if (isGbOcean && h.holeNumber === 9 && h.par === 5) {
+                      h.par = 4;
+                      needSave = true;
+                    }
+                  });
+
                   const actualTotalScore = round.holes.reduce((sum, h) => sum + (h.score !== undefined ? h.score : (h.par || 4)), 0);
                   const actualTotalPar = round.holes.reduce((sum, h) => sum + (h.par || 4), 0);
                   return {
@@ -1146,6 +1157,14 @@
                 }
                 return round;
               });
+
+              if (needSave) {
+                try {
+                  localStorage.setItem(`${STORAGE_KEYS.ROUNDS_PREFIX}${user}`, JSON.stringify(result));
+                } catch (e) {}
+              }
+
+              return result;
             }
           }
         } catch (e) {
