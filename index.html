@@ -2839,14 +2839,17 @@
               </div>
 
               <div class="text-right">
-                <div class="text-[10px] text-slate-400 font-medium mb-1">기준 파(Par) 변경</div>
-                <div class="flex items-center gap-1">
+                <div class="text-[10px] text-slate-400 font-semibold mb-1 flex items-center justify-end gap-1">
+                  <span>⛳ 기준 파(Par) 변경</span>
+                </div>
+                <div class="flex items-center gap-1 bg-slate-950/80 p-0.5 rounded-lg border border-slate-800">
                   ${[3, 4, 5, 6].map(pVal => `
                     <button onclick="window.appActions.changeCurrentHolePar(${pVal})"
-                            class="px-2 py-0.5 rounded text-xs font-black transition-all ${
+                            title="현재 홀을 Par ${pVal}로 변경"
+                            class="px-2.5 py-1 rounded-md text-xs font-black transition-all ${
                               par === pVal
-                                ? 'bg-emerald-500 text-slate-950 font-black shadow ring-1 ring-white'
-                                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                                ? 'bg-emerald-500 text-slate-950 shadow-md ring-1 ring-emerald-300 scale-105 font-black'
+                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/80'
                             }">
                       P${pVal}
                     </button>
@@ -4550,7 +4553,8 @@
       changeCurrentHolePar: (newPar) => {
         updateActiveHoleInRound(h => {
           const oldPar = h.par || 4;
-          const diff = h.score - oldPar;
+          const currentScore = (h.score !== undefined && !isNaN(h.score)) ? h.score : oldPar;
+          const diff = currentScore - oldPar;
           h.par = newPar;
           h.score = Math.max(1, newPar + diff);
           if (newPar === 3) {
