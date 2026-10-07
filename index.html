@@ -1128,6 +1128,60 @@
             ]
           }
         ]
+      },
+      {
+        id: 'course-shinedale',
+        name: '샤인데일 CC',
+        location: '강원도 홍천군',
+        type: '27홀 대중제',
+        holesCount: 27,
+        subCourses: [
+          {
+            id: 'sub-shinedale-shine',
+            name: '샤인 코스 (Shine)',
+            holes: [
+              { holeNumber: 1, par: 5, handicap: 6, distance: 491 },
+              { holeNumber: 2, par: 4, handicap: 1, distance: 424 },
+              { holeNumber: 3, par: 3, handicap: 7, distance: 182 },
+              { holeNumber: 4, par: 4, handicap: 5, distance: 305 },
+              { holeNumber: 5, par: 4, handicap: 3, distance: 359 },
+              { holeNumber: 6, par: 3, handicap: 8, distance: 164 },
+              { holeNumber: 7, par: 5, handicap: 4, distance: 502 },
+              { holeNumber: 8, par: 4, handicap: 9, distance: 279 },
+              { holeNumber: 9, par: 4, handicap: 2, distance: 382 }
+            ]
+          },
+          {
+            id: 'sub-shinedale-dale',
+            name: '데일 코스 (Dale)',
+            holes: [
+              { holeNumber: 1, par: 5, handicap: 5, distance: 412 },
+              { holeNumber: 2, par: 4, handicap: 3, distance: 355 },
+              { holeNumber: 3, par: 3, handicap: 8, distance: 142 },
+              { holeNumber: 4, par: 5, handicap: 1, distance: 467 },
+              { holeNumber: 5, par: 4, handicap: 4, distance: 360 },
+              { holeNumber: 6, par: 3, handicap: 9, distance: 139 },
+              { holeNumber: 7, par: 4, handicap: 7, distance: 282 },
+              { holeNumber: 8, par: 4, handicap: 6, distance: 307 },
+              { holeNumber: 9, par: 4, handicap: 2, distance: 355 }
+            ]
+          },
+          {
+            id: 'sub-shinedale-lake',
+            name: '레이크 코스 (Lake)',
+            holes: [
+              { holeNumber: 1, par: 4, handicap: 6, distance: 317 },
+              { holeNumber: 2, par: 5, handicap: 2, distance: 468 },
+              { holeNumber: 3, par: 3, handicap: 8, distance: 130 },
+              { holeNumber: 4, par: 4, handicap: 5, distance: 310 },
+              { holeNumber: 5, par: 4, handicap: 1, distance: 332 },
+              { holeNumber: 6, par: 4, handicap: 4, distance: 293 },
+              { holeNumber: 7, par: 5, handicap: 3, distance: 453 },
+              { holeNumber: 8, par: 3, handicap: 9, distance: 154 },
+              { holeNumber: 9, par: 4, handicap: 7, distance: 316 }
+            ]
+          }
+        ]
       }
     ];
 
@@ -1315,7 +1369,8 @@
               'course-club72-hanul',
               'course-fukuoka-pheasant',
               'course-seitanomori-kitakyushu',
-              'course-fukuoka-nijo'
+              'course-fukuoka-nijo',
+              'course-shinedale'
             ];
             DEFAULT_COURSES.forEach(defCourse => {
               const idx = parsed.findIndex(c => c.id === defCourse.id);
