@@ -1223,8 +1223,8 @@
         ]
       },
       {
-        id: 'course-golfzon-silla',
-        name: '골프존카운티 신라',
+        id: 'course-silla',
+        name: '신라 CC',
         location: '경기도 여주시',
         type: '27홀 대중제',
         holesCount: 27,
@@ -1265,13 +1265,13 @@
             holes: [
               { holeNumber: 1, par: 4, handicap: 5, distance: 330 },
               { holeNumber: 2, par: 4, handicap: 4, distance: 345 },
-              { holeNumber: 3, par: 4, handicap: 6, distance: 360 },
+              { holeNumber: 3, par: 5, handicap: 2, distance: 485 },
               { holeNumber: 4, par: 3, handicap: 8, distance: 140 },
-              { holeNumber: 5, par: 4, handicap: 3, distance: 325 },
-              { holeNumber: 6, par: 3, handicap: 9, distance: 155 },
-              { holeNumber: 7, par: 5, handicap: 2, distance: 485 },
-              { holeNumber: 8, par: 5, handicap: 7, distance: 510 },
-              { holeNumber: 9, par: 4, handicap: 1, distance: 370 }
+              { holeNumber: 5, par: 4, handicap: 6, distance: 325 },
+              { holeNumber: 6, par: 4, handicap: 3, distance: 360 },
+              { holeNumber: 7, par: 3, handicap: 9, distance: 155 },
+              { holeNumber: 8, par: 5, handicap: 1, distance: 510 },
+              { holeNumber: 9, par: 4, handicap: 7, distance: 370 }
             ]
           }
         ]
@@ -1558,10 +1558,16 @@
               'course-fukuoka-nijo',
               'course-shinedale',
               'course-golfzon-hwarang',
-              'course-golfzon-silla',
+              'course-silla',
               'course-cheonlyong',
               'course-cheonlyong-public'
             ];
+            // 구 골프존카운티 신라 ID 잔존 시 신라 CC로 대체 정리
+            const oldSillaIdx = parsed.findIndex(c => c.id === 'course-golfzon-silla');
+            if (oldSillaIdx !== -1) {
+              parsed.splice(oldSillaIdx, 1);
+              updatedCount++;
+            }
             DEFAULT_COURSES.forEach(defCourse => {
               const idx = parsed.findIndex(c => c.id === defCourse.id);
               if (idx === -1) {
